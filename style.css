@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+
+:root {
+  --desaturated-dark-cyan: hsl(180, 29%, 50%);
+  --background: hsl(180, 52%, 96%);
+  --filter-tablets: hsl(180, 31%, 95%);
+  --dark-grayish-cyan: hsl(180, 8%, 52%);
+  --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--very-dark-grayish-cyan);
+  border-radius: 3.125rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-grayish-cyan);
+}
+
+body {
+  height: 100vh;
+  background: var(--background);
+  font-family: "League Spartan", sans-serif;
+  /* display: grid;
+  place-items: center; */
+}
+
+.bg-header-desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9.375rem;
+  background: url("images/bg-header-desktop.svg") no-repeat center center/cover;
+}
+
+.bg-header-desktop::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--desaturated-dark-cyan);
+  z-index: -1;
+}
+
+#filtered-tags-container {
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 6.25rem;
+  background: #fff;
+  border-radius: 0.3125rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.875rem 0 0.9375rem;
+
+  -webkit-box-shadow: 0rem 0.3125rem 0.3125rem 0rem var(--desaturated-dark-cyan);
+  -moz-box-shadow: 0rem 0.3125rem 0.3125rem 0rem var(--desaturated-dark-cyan);
+  box-shadow: 0rem 0.3125rem 0.3125rem 0rem var(--desaturated-dark-cyan);
+}
+
+.filtered-tags {
+  display: flex;
+  align-items: center;
+}
+
+.filter {
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  height: 2.1875rem;
+  border-radius: 0.3125rem;
+  margin-left: 0.9375rem;
+}
+
+.filter-name {
+  color: var(--desaturated-dark-cyan);
+  font-weight: 700;
+  padding: 0 0.625rem;
+}
+
+.remove-btn {
+  height: 100%;
+  width: 2.1875rem;
+  background: var(--desaturated-dark-cyan);
+  border: none;
+  outline: none;
+  display: grid;
+  place-items: center;
+  border-radius: 0 0.3125rem 0.3125rem 0;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: var(--very-dark-grayish-cyan);
+}
+
+.clear-btn {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 0.9375rem;
+  color: var(--desaturated-dark-cyan);
+  font-weight: 700;
+  text-decoration: underline;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.clear-btn:active {
+  transform: scale(0.95);
+}
+
+#main-container {
+  width: 80%;
+  margin: 15.625rem auto 0;
+  padding-bottom: 3.125rem;
+}
+
+.job {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.1875rem;
+  margin-bottom: 1.875rem;
+  border-radius: 0.3125rem;
+  position: relative;
+
+  -webkit-box-shadow: 0rem 0.3125rem 0.3125rem 0rem var(--desaturated-dark-cyan);
+  -moz-box-shadow: 0rem 0.3125rem 0.3125rem 0rem var(--desaturated-dark-cyan);
+  box-shadow: 0rem 0.3125rem 0.3125rem 0rem var(--desaturated-dark-cyan);
+}
+
+.job:first-child::after,
+.job:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0.3125rem;
+  background: var(--desaturated-dark-cyan);
+  border-radius: 0.3125rem 0 0 0.3125rem;
+}
+
+.job:last-child {
+  margin-bottom: 0;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  margin-right: 1.5625rem;
+}
+
+.company-name-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.625rem;
+}
+
+.company-name {
+  color: var(--desaturated-dark-cyan);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.new-tag,
+.featured-tag {
+  text-transform: uppercase;
+  background: var(--desaturated-dark-cyan);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.4688rem 0.625rem;
+  border-radius: 3.125rem;
+}
+
+.new-tag {
+  background: var(--desaturated-dark-cyan);
+  margin: 0 0.9375rem;
+}
+
+.featured-tag {
+  background: var(--very-dark-grayish-cyan);
+}
+
+.position {
+  color: var(--very-dark-grayish-cyan);
+  font-weight: 700;
+  margin-bottom: 0.7813rem;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.position:hover {
+  color: var(--desaturated-dark-cyan);
+}
+
+.job-info {
+  display: flex;
+  align-items: center;
+}
+
+.time-posted,
+.contract,
+.location {
+  color: var(--dark-grayish-cyan);
+  font-size: 0.9375rem;
+}
+
+.spacer-dot {
+  width: 0.3125rem;
+  height: 0.3125rem;
+  background: var(--dark-grayish-cyan);
+  margin: 0 0.9375rem;
+  border-radius: 50%;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+}
+
+.tag {
+  background: var(--background);
+  color: var(--desaturated-dark-cyan);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.625rem 0.9375rem;
+  margin-right: 0.9375rem;
+  border-radius: 0.3125rem;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: var(--desaturated-dark-cyan);
+  color: var(--filter-tablets);
+}
+
+.tag:last-child {
+  margin-right: 0;
+}
+
+.mobile-divider {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  #main-container, 
+  #filtered-tags-container {
+    width: 90%;
+  }
+
+  #filtered-tags-container {
+    height: 9.375rem;
+    top: 5%;
+    padding-top: 0.9375rem;
+  }
+
+  .filtered-tags {
+    flex-wrap: wrap;
+  }
+
+  .filter {
+    margin-bottom: 0.9375rem;
+  }
+
+  .job,
+  .company {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job {
+    padding-top: 3.75rem;
+    padding-bottom: 0;
+    margin-bottom: 4.6875rem;
+  }
+
+  .company {
+    margin-top: -5.9375rem;
+  }
+
+  .company-logo {
+    width: 4.375rem;
+    height: 4.375rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .company-name,
+  .position {
+    font-size: 1rem;
+  }
+
+  .tags {
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin-right: 2.1875rem;
+    margin-bottom: 2.1875rem;
+  }
+
+  .mobile-divider {
+    display: block;
+    width: 100%;
+    height: 0.0625rem;
+    background: var(--dark-grayish-cyan);
+    margin: 1.5625rem 0;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+  #filtered-tags-container {
+    width: 90%;
+  }
+
+  #main-container {
+    width: 90%;
+  }
+
+  .job-info {
+    width: 15.625rem;
+  }
+
+  .tags {
+    flex-wrap: wrap;
+    margin-left: 4.375rem;
+  }
+
+  .tag {
+    margin-bottom: 0.9375rem;
+  }
+}
+
+@media screen and (width: 280px) {
+  .filter {
+    height: 1.875rem;
+  }
+  .filter-name {
+    font-size: 0.75rem;
+    padding: 0 0.3125rem;
+  }
+
+  .remove-btn {
+    width: 1.25rem;
+  }
+
+  .job {
+    padding: 3.75rem 1.0625rem 0.9375rem 1.0625rem;
+  }
+
+  .new-tag,
+  .featured-tag {
+    font-size: 0.75rem;
+  }
+
+  .new-tag {
+    margin: 0 0.625rem;
+  }
+
+  .time-posted,
+  .contract,
+  .location {
+    font-size: 0.75rem;
+  }
+
+  .tag {
+    margin-right: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+}
